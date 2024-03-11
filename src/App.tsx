@@ -4,8 +4,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Loading, Layout } from "./components";
 import './App.css'
 
-const Welcome = React.lazy(() => import('./pages/Welcome'));
-const Task = React.lazy(() => import('./pages/Task'));
+const Welcome = React.lazy(() => import('./pages/welcome'));
+const Task = React.lazy(() => import('./pages/task'));
 
 const App = () => (
   <Suspense fallback={<Loading />}>

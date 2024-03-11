@@ -1,15 +1,13 @@
-import AddTask from "./AddTask";
-import Header from "./Header";
-import TaskList from "./TaskList";
-import TaskListActions from "./TaskListActions";
-import Loading from "./Loading";
-import Layout from "./Layout";
+import AddTask from "./add-task";
+import Header from "./header";
+import TaskList from "./task-list";
+import Loading from "./loading";
+import Layout from "./layout";
 
 export {
     AddTask,
     Header,
     TaskList,
-    TaskListActions,
     Loading,
     Layout
 }

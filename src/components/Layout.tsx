@@ -4,7 +4,7 @@ import { Header } from '.';
 const Layout = () => {
   return (
     <>
-      <Header />
+      <Header username="username" />
       <Outlet />
     </>
   );
