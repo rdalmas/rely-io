@@ -2,16 +2,16 @@ import { useContext } from "react";
 import { useNavigate } from "react-router";
 
 import { UserContext } from "../providers/user.provider";
-import { uniqueId } from "../helper/uniqueId";
+import { generateId } from "../helpers/generateId";
 
 const Welcome = () => {
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
 
     const changeUser = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
-        setUser((prevUser) => { 
+        setUser((prevUser) => {
             return { 
-                ...prevUser, [field]: e.target.value, userId: uniqueId() }
+                ...prevUser, [field]: e.target.value, userId: generateId() }
             }
         );
     };
