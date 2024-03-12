@@ -19,4 +19,8 @@ describe("task-list -> ", () => {
         expect(screen.findByText("/test task 1/"));
         expect(screen.findByText("/test task description 1/"));
     });
+    it("should display message if no tasks were found", () => {
+        render(<TaskList tasks={[]} />);
+        expect(screen.findByText("/no tasks/"));
+    });
 });
