@@ -1,0 +1,22 @@
+input[type="checkbox"] {
+    appearance: none; /* Remove default checkbox appearance */
+    -webkit-appearance: none; /* For older versions of Chrome */
+    -moz-appearance: none; /* For older versions of Firefox */
+    width: 20px; /* Set width and height for checkbox */
+    height: 20px;
+    background-color: transparent;
+    border: var(--border-thin) solid var(--tertiary-color); /* Border */
+    border-radius: var(--border-radius-default);
+    position: relative;
+    cursor: pointer;
+}
+  
+/* Styling for checked state */
+input[type="checkbox"]:checked::before {
+    content: '✔'; /* Unicode check symbol */
+    font-size: var(--font-size-extra-large); /* Size of check symbol */
+    color: var(--tertiary-color); /* Color of check symbol */
+    position: absolute; /* Position check symbol */
+    top: -14px; /* Adjust vertical alignment */
+    left: 0;
+}

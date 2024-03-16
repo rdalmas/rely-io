@@ -4,7 +4,8 @@ import { useNavigate } from "react-router";
 import { UserContext } from "../providers/user.provider";
 import { generateId } from "../helpers/generateId";
 
-import "./welcome.css";
+import styles from "./welcome.module.scss";
+import taskTrackerSvg from "../assets/task-tracker.svg";
 
 const Welcome = () => {
     const { user, setUser } = useContext(UserContext);
@@ -23,24 +24,21 @@ const Welcome = () => {
     }
 
     return (
-        <main>
-            <h1>Welcome</h1>
-            <section className="flex column">
-                <h2>Please set your username and prefered color</h2>
-                <div className="flex container column">
-                    <div className="flex row hor-start field-spacing">
-                        <label className="label-width label-mrgn" htmlFor="username">username: </label>
-                        <input value={user.username} data-testid="username-input" name="username" type="text" onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeUser(e, "username")} />                    
-                    </div>
-                    <div className="flex row hor-start field-spacing">
-                        <label className="label-width label-mrgn" htmlFor="color">color: </label>
-                        <input value={user.color} data-testid="color-input" type="color" name="color" onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeUser(e, "color")} />
-                    </div>
-                    <div className="flex row hor-center field-spacing">
-                        <button data-testid="submit-button" disabled={!user.username && !user.color} onClick={navitateTaskPage}>Submit</button>
-                    </div>
+        <main className={styles.main}>
+            <article className={styles.welcomeContainer}>
+                <div className={styles.titleContainer}>
+                    <img src={taskTrackerSvg} className={styles.imgTitle} />
+                    <h1>Task Tracker</h1>
                 </div>
-            </section>
+                <section>
+                    <label htmlFor="username"><h3>Please enter your username:</h3>
+                        <input value={user.username} data-testid="username-input" name="username" type="text" onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeUser(e, "username")} />
+                    </label>
+                    <div className={styles.buttonContainer}>
+                        <button data-testid="submit-button" disabled={!user.username} onClick={navitateTaskPage}>Submit</button>
+                    </div>
+                </section>
+            </article>
         </main>
     )
 };

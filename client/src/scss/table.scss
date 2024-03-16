@@ -1,0 +1,61 @@
+/* Styling for the table */
+table {
+    width: 100%;
+    max-width: 1200px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    overflow: hidden;
+    background-color: var(--secondary-color); /* Yellowish background */
+    border: var(--border-thin) var(--primary-color); /* Border for the table */
+    vertical-align: top; /* Align content to the top of the cell */
+}
+
+/* Styling for alternating rows */
+table tbody tr:nth-child(even) {
+    background-color: #fff; /* White background for even rows */
+}
+
+/* Styling for table cells */
+table td, th {
+    padding: var(--spacing-md);
+    font-size: var(--font-size-medium);
+    border-bottom: var(--border-thin) solid var(--primary-color); /* Border bottom for cells */
+    text-align: center;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+/* Media query for mobile and some tablet devices */
+@media only screen and (max-width: 600px) {
+    /* Styling for table cells */
+    table td, th {
+        font-size: var(--font-size-large);
+    }
+    table {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+
+        th {
+            display: none;
+        }
+        
+        td {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding: 10px;
+        }
+
+        td::before {
+            content: attr(data-header);
+            font-weight: var(--font-weight-semi-bold);
+            margin: 5px 10px;
+        }
+    }
+
+    input {
+        width: 100%;
+        text-align: left;
+    }
+}

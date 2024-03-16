@@ -1,0 +1,21 @@
+/* Style for input fields */
+input {
+    border: none; /* Remove default border */
+    border-bottom: var(--border-thin) solid var(--primary-color); /* Add border bottom */
+    background-color: transparent; /* Transparent background */
+    font-size: var(--font-size-medium);
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Remove hover and focus effects */
+input:hover,
+input:focus {
+    outline: none;
+    border-bottom: var(--border-thin) solid var(--primary-color); /* Add border bottom */
+}

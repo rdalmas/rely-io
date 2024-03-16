@@ -1,0 +1,21 @@
+.headerImg {
+    height: var(--image-small);
+    width: auto;
+}
+
+.headerContainer {
+    display: flex;
+    background-color: var(--secondary-color);
+    border: var(--border-thin) solid var(--primary-color);
+    max-width: calc(1200px - var(--border-thin) * 2);
+    display: flex;
+    width: calc(100% - var(--border-thin) * 2);
+}
+
+.headerSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm);
+    width: 100%;
+}

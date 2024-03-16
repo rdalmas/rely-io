@@ -1,8 +1,10 @@
+import styles from "./loading.module.scss";
+
 const Loading = () => {
     return (
-      <div className="main-container">
-        <div className='loader'>
-          <div className="spinner" />
+      <div className={styles.mainContainer}>
+        <div className={styles.loader}>
+          <div className={styles.spinner} />
         </div>
       </div>
     );

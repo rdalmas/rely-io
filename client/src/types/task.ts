@@ -2,7 +2,7 @@ type Task = {
     id: string;
     title: string;
     description: string;
-    dueDate: Date;
+    dueDate: string;
     completed: boolean;
     username: string;
 }

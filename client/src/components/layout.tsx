@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import Header from './header';
+import { Header } from '../components';
 import { useContext } from 'react';
 import { UserContext } from '../providers/user.provider';
 

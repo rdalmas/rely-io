@@ -9,8 +9,7 @@ interface IUserContext {
 const defaultValue = {
     user: {
         userId: "",
-        username: "",
-        color: ""
+        username: ""
     },
     setUser: () => {}
 }
@@ -18,7 +17,7 @@ const defaultValue = {
 const UserContext = createContext<IUserContext>(defaultValue);
 
 const UserProvider = (props: PropsWithChildren) => {
-    const [user, setUser] = useState<User>({ userId: "", username: "", color: "" });
+    const [user, setUser] = useState<User>({ userId: "", username: "" });
 
     return (
         <UserContext.Provider value={{ user, setUser }}>

@@ -1,11 +1,11 @@
 import Header from "./header";
 import Layout from "./layout";
-import TaskList from "./task-list";
+import TaskTable from "./task-table";
 import Loading from "./loading";
 
 export {
     Header,
     Layout,
-    TaskList,
+    TaskTable,
     Loading
 }

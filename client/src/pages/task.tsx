@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import io, { Socket } from "socket.io-client";
 
-import { TaskList } from "../components";
+import { TaskTable } from "../components";
 import { Task } from "../types/task";
+
+import style from "./task.module.scss";
 
 const TaskPage = () => {
     const [tasks, setTasks] = useState<Task[]>([]);
@@ -62,13 +64,18 @@ const TaskPage = () => {
 
 
     return (
-        <main>
-            <TaskList 
-                tasks={tasks}
-                addTask={addTask}
-                removeTask={removeTask}
-                markTaskAsCompleted={markTaskAsCompleted}
-            />
+        <main className={style.taskContainer}>
+            <div className={style.taskTitleContainer}>
+                <h2>Task Tracker</h2>
+            </div>
+            <section className={style.taskSection}>
+                <TaskTable 
+                    tasks={tasks}
+                    addItem={addTask}
+                    removeItem={removeTask}
+                    checkboxAction={markTaskAsCompleted}
+                />
+            </section>
         </main>
     )
 };

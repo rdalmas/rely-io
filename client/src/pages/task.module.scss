@@ -1,0 +1,20 @@
+.taskSection {
+    overflow-x: auto;
+    border: var(--border-thin) solid var(--primary-color);
+    border-bottom: none;
+}
+
+.taskTitleContainer {
+    margin: var(--spacing-sm) 0;
+    background-color: var(--secondary-color);
+    border: var(--border-thin) solid var(--primary-color);
+    display: flex;
+    justify-content: center;
+}
+
+.taskContainer {
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    max-width: 1200px;
+}
