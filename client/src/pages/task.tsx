@@ -1,16 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import io, { Socket } from "socket.io-client";
 
 import { TaskTable } from "../components";
 import { Task } from "../types/task";
 
 import style from "./task.module.scss";
+import { UserContext } from "../providers/user.provider";
+import { useNavigate } from "react-router";
 
 const TaskPage = () => {
+    const { user } = useContext(UserContext);
     const [tasks, setTasks] = useState<Task[]>([]);
     const [socket, setSocket] = useState<Socket>({} as Socket);
+    const navigate = useNavigate();
 
     useEffect(() => {
+        if (!user.userId || !user.username) navigate("/");
         const server = "http://localhost:4001";
         const connectionOptions = {
             forceNew: true,
@@ -23,14 +28,13 @@ const TaskPage = () => {
     
     
         newSocket.on('connect', () => {
-          console.log('Connected to newSocket.io server!');
+          console.info('Connected to socket server!');
         });
     
         newSocket.on('newTasks', (tasks: Task[]) => {
             setTasks(tasks);
         })
     
-        // Clean up the socket connection when the component is unmounted
         return () => {
             newSocket.disconnect();
         };
