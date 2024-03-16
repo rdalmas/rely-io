@@ -1,7 +1,5 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
     clearMocks: true,
-    coverageProvider: 'v8',
     moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
     roots: ['<rootDir>/src'],
     testMatch: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
@@ -11,4 +9,3 @@ module.exports = {
     testEnvironment: 'node',
     testTimeout: 10000
   };
-  

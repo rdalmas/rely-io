@@ -1,5 +1,6 @@
 import { Server, Socket } from "socket.io";
 import { createServer } from "http";
+import { Task } from "./types/task";
 
 const PORT = 4001;
 const CLIENT = "http://localhost:3000"
@@ -15,7 +16,7 @@ const server = new Server(httpServer, {
 });
 
 let connections: Socket[] = []
-let tasks;
+let tasks: Task;
 
 /* CONNECT */
 function handleConnection(socket: Socket) {

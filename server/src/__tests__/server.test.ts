@@ -1,22 +1,22 @@
-import { createServer } from "http";
-import { Server } from "socket.io";
-import { io } from "socket.io-client";
+import { createServer, Server as HttpServer } from "http";
+import { Server as SocketIoServer, Socket as ServerSocket } from "socket.io";
+import { Socket as ClientSocket, io as createClient } from "socket.io-client";
 
-function waitFor(socket, event) {
+function waitFor(socket: ServerSocket, event: string): Promise<any> {
   return new Promise((resolve) => {
     socket.once(event, resolve);
   });
 }
 
 describe("Server test", () => {
-  let ioc, serverSocket, clientSocket;
+  let ioc: SocketIoServer<HttpServer>, serverSocket: ServerSocket, clientSocket: ClientSocket;
 
   beforeAll((done) => {
     const httpServer = createServer();
-    ioc = new Server(httpServer);
+    ioc = new SocketIoServer(httpServer);
     httpServer.listen(() => {
       const port = (httpServer.address() as any).port;
-      clientSocket = io(`http://localhost:${port}`);
+      clientSocket = createClient(`http://localhost:${port}`);
       ioc.on("connection", (socket) => {
         serverSocket = socket;
       });
@@ -41,7 +41,7 @@ describe("Server test", () => {
     serverSocket.on("hi", (cb) => {
       cb("hola");
     });
-    clientSocket.emit("hi", (arg) => {
+    clientSocket.emit("hi", (arg: string) => {
         expect(arg).toEqual("hola");
         done();
     });
