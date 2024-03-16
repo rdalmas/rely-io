@@ -10,12 +10,12 @@ import { useNavigate } from "react-router";
 
 const TaskPage = () => {
     const { user } = useContext(UserContext);
+    const navigate = useNavigate();
+    if (!user.userId || !user.username) navigate("/");
     const [tasks, setTasks] = useState<Task[]>([]);
     const [socket, setSocket] = useState<Socket>({} as Socket);
-    const navigate = useNavigate();
 
     useEffect(() => {
-        if (!user.userId || !user.username) navigate("/");
         const server = "http://localhost:4001";
         const connectionOptions = {
             forceNew: true,
