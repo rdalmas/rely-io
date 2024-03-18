@@ -5,6 +5,9 @@ import { generateId } from "../helpers/generateId";
 import { formatDate } from "../helpers/formatDate";
 import { UserContext } from "../providers/user.provider";
 
+import add from "../assets/add.svg";
+import remove from "../assets/remove.svg";
+
 import style from "./task-table.module.scss";
 
 type TaskListProps = {
@@ -49,19 +52,19 @@ const Table = ({ tasks, addItem, removeItem, checkboxAction }: TaskListProps) =>
             <tbody>
                 <tr>
                     <td data-header="Title">
-                        <input required value={newItem.title} data-testid="title-input" type="text" onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeNewTask(e, "title")} />
+                        <input tabIndex={0} id="title" required value={newItem.title} data-testid="title-input" type="text" onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeNewTask(e, "title")} />
                     </td>
                     <td data-header="Description">
-                        <input required value={newItem.description} data-testid="description-input" type="text" onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeNewTask(e, "description")} />
+                        <input id="description" required value={newItem.description} data-testid="description-input" type="text" onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeNewTask(e, "description")} />
                     </td>
                     <td colSpan={2} data-header="Due Date">
-                        <input required min={new Date().toISOString().split('T')[0]} value={newItem.dueDate} type="date" data-testid="new-due-date-input" onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeNewTask(e, "dueDate")} />
+                        <input id="due-date" required min={new Date().toISOString().split('T')[0]} value={newItem.dueDate} type="date" data-testid="new-due-date-input" onChange={(e: React.ChangeEvent<HTMLInputElement>) => changeNewTask(e, "dueDate")} />
                     </td>
                     <td data-header="Completed">
-                        <input checked={newItem.completed} name="new-task-completed" data-testid="new-task-completed" type="checkbox" onChange={(e: React.ChangeEvent<HTMLInputElement>) => markNewTaskAsCompleted(e)} />
+                        <input id="completed" checked={newItem.completed} name="new-task-completed" data-testid="new-task-completed" type="checkbox" onChange={(e: React.ChangeEvent<HTMLInputElement>) => markNewTaskAsCompleted(e)} />
                     </td>
                     <td data-header="Action">
-                        <button data-testid="add-task-button" disabled={shouldDisableAddButton} onClick={onAddItem}>Add</button>
+                        <button data-testid="add-task-button" disabled={shouldDisableAddButton} onClick={onAddItem}><img alt="add task" src={add} height={20} width={20} /></button>
                     </td>
                     <td data-header="User">{user.username}</td>
                 </tr>
@@ -74,14 +77,14 @@ const Table = ({ tasks, addItem, removeItem, checkboxAction }: TaskListProps) =>
                             <input checked={task.completed} name="task-completed" data-testid="task-completed" type="checkbox" onChange={() => checkboxAction(task.id)} />
                         </td>
                         <td data-header="Action">
-                            <button data-testid="remove-task-button" onClick={() => removeItem(task.id)}>Remove</button>
+                            <button data-testid="remove-task-button" onClick={() => removeItem(task.id)}><img alt="remove task" src={remove} height={20} width={20} /></button>
                         </td>
                         <td data-header="User">{task.username}</td>
                     </tr>
                 ))}
                 {tasks.length === 0 && (
                     <tr>
-                        <td colSpan={7} className={style.message}>No tasks available</td>
+                        <td data-header="Message" colSpan={7} className={style.message}>No tasks available</td>
                     </tr>
                 )}
             </tbody>

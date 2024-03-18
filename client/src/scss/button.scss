@@ -1,24 +1,27 @@
-/* Styling for buttons */
 button {
-    appearance: none; /* Remove default button appearance */
-    -webkit-appearance: none; /* For older versions of Chrome */
-    -moz-appearance: none; /* For older versions of Firefox */
-    background-color: var(--quarternary-color); /* Yellowish background */
-    border: var(--border-thin) solid var(--tertiary-color); /* Border */
-    border-radius: var(--border-radius-default); /* Rounded corners */
-    font-size: var(--font-size-medium); /* Font size */
-    cursor: pointer; /* Cursor style */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--quarternary-color);
+    border: var(--border-thin) solid var(--tertiary-color);
+    border-radius: var(--border-radius-default);
+    font-size: var(--font-size-medium);
+    cursor: pointer;
     width: 100%;
-    max-width: 100px;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    max-width: 50px;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-  
-/* Hover effect */
+
 button:hover {
-    background-color: var(--primary-color-hover); /* Lighter background color on hover */
+    background-color: var(--primary-color-hover);
 }
-  
-/* Active effect */
+
 button:active {
-    background-color: var(--primary-color-active); /* Even lighter background color on active state */
+    background-color: var(--primary-color-active);
 }

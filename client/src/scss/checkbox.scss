@@ -10,6 +10,14 @@ input[type="checkbox"] {
     position: relative;
     cursor: pointer;
 }
+
+input[type="checkbox"]:hover {
+    border-bottom: var(--border-thin) solid var(--tertiary-color);;
+}
+
+input[type="checkbox"]:checked {
+    border-bottom: var(--border-thin) solid var(--tertiary-color);;
+}
   
 /* Styling for checked state */
 input[type="checkbox"]:checked::before {

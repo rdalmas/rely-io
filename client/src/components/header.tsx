@@ -10,7 +10,7 @@ const Header = (props: HeaderProps) => {
     return (
         <header className={style.headerContainer}>
             <section className={style.headerSection}>
-                <img className={style.headerImg} src={taskTrackerSvg} />
+                <img alt="task tracker logo" height={25} width={25} className={style.headerImg} src={taskTrackerSvg} />
                 <span>Welcome, {props.username}</span>
             </section>
         </header>

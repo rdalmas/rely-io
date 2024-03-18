@@ -4,22 +4,27 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: #f0efed;
+  background-color: var(--tertiary-color);
 }
   
 .loader {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: var(--image-medium);
+  height: var(--image-medium);
 }
 
 .spinner {
   display: inline-block;
-  width: 64px;
-  height: 64px;
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #1a2456;
-  border-radius: 50%;
-  animation: spin 2s linear infinite;
+  width: var(--image-medium);
+  height: var(--image-medium);
+  border: var(--border-large) solid var(--tertiary-color);
+  border-top: var(--border-large) solid var(--primary-color);
+  border-radius: var(--border-radius-circular);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
