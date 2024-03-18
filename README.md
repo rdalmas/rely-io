@@ -41,7 +41,7 @@ npm start
 
 ### Optimization Techniques used:
 #### 1. Code Splitting:
-   - Split your application code into smaller chunks using dynamic imports or tools like `React.lazy` and `Suspense` to load only the necessary code for the current view, reducing initial bundle size and improving loading times.
+   - Code splitted into smaller chunks using dynamic imports or tools like `React.lazy` and `Suspense` to load only the necessary code for the current view, reducing initial bundle size and improving loading times.
 
 #### 2. Minification and tree-shaking:
    - Bundle is minified and splitted into various chunks to improve performance
