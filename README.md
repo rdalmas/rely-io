@@ -13,7 +13,8 @@ Simple task tracker application with two pages, one for setting the user and ano
 ```
 cd client
 npm install
-npm start
+npm start (for development bundle and HMR)
+npm preview (for production bundle)
 ```
 
 ## Server
